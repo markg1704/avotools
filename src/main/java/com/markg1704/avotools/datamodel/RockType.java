@@ -1,15 +1,15 @@
 package com.markg1704.avotools.datamodel;
 
-public enum FluidType {
+public enum RockType {
 
-    WATER("Water"),
-    OIL("Oil"),
-    GAS("Gas"),
+    SAND("Sand"),
+    SHALE("Shale"),
+    LIMESTONE("Limestone"),
     UNDEFINED("Undefined");
 
     private final String descriptor;
 
-    FluidType(String descriptor) {
+    RockType(String descriptor) {
         this.descriptor = descriptor;
     }
 
@@ -17,13 +17,14 @@ public enum FluidType {
         return this.descriptor;
     }
 
-    public static FluidType getFluidTypeFromDescriptor(String value) {
+    public static RockType getRockTypeFromDescriptor(String value) {
 
-        for (FluidType type : FluidType.values()) {
+        for (RockType type : RockType.values()) {
             if (value.equalsIgnoreCase(type.getDescriptor()))
                 return type;
         }
 
-        return FluidType.UNDEFINED;
+        return RockType.UNDEFINED;
     }
+
 }
