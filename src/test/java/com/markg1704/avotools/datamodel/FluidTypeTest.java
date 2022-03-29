@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class FluidTypeTest {
 
@@ -24,10 +23,10 @@ public class FluidTypeTest {
     }
 
     @Test
-    public void shouldReturnNullWhenUnrecognisedDescriptorProvided() {
+    public void shouldReturnUndefinedWhenUnrecognisedDescriptorProvided() {
         FluidType fluidType = FluidType.getFluidTypeFromDescriptor("nosuch");
 
-        assertNull(fluidType);
+        assertEquals(fluidType, FluidType.UNDEFINED);
     }
 
     private FluidType getFluidTypeFromParameter(String value) {
