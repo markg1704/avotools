@@ -59,6 +59,11 @@ public class LayerController {
         return ResponseEntity.of(layerService.getLayersByName(name));
     }
 
+    @GetMapping(Endpoints.GET_BY_PROJECT_ID)
+    public ResponseEntity<Iterable<LayerDTO>> getLayersByProjectId(@RequestParam("projectid") Long projectId) {
+        return ResponseEntity.of(layerService.getLayersByProjectId(projectId));
+    }
+
     @PostMapping(Endpoints.DELETE)
     public ResponseEntity deleteLayer(@RequestParam("id") Long id) {
 

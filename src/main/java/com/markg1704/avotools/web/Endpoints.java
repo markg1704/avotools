@@ -8,6 +8,7 @@ public class Endpoints {
     public static final String GET_BY_FLUID = "/getfluid";
     public static final String GET_BY_ROCKTYPE= "/getrock";
     public static final String GET_BY_WELL = "/getwell";
+    public static final String GET_BY_PROJECT_ID = "/projectid";
     public static final String CREATE = "/create";
     public static final String DELETE = "/delete";
     public static final String UPDATE = "/update";

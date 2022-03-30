@@ -17,4 +17,6 @@ public interface LayerRepository extends CrudRepository<Layer, Long> {
 
     List<Layer> findByRockType(RockType rockType);
 
+    List<Layer> findByProjectId(Long projectId);
+
 }

@@ -21,6 +21,8 @@ public interface LayerService {
 
     Optional<Iterable<LayerDTO>> getLayersByRockType(RockType rockType);
 
+    Optional<Iterable<LayerDTO>> getLayersByProjectId(Long projectId);
+
     Optional<LayerDTO> createLayer(LayerDTO layer);
 
     Optional<Boolean> deleteLayer(Long id);
