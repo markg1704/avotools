@@ -62,6 +62,12 @@ public class LayerServiceImpl implements LayerService {
     }
 
     @Override
+    public Optional<Iterable<LayerDTO>> getLayersByProjectId(Long projectId) {
+        Iterable<LayerDTO> iterable = getLayerDTOList(layerRepository.findByProjectId(projectId));
+        return Optional.of(iterable);
+    }
+
+    @Override
     public Optional<LayerDTO> createLayer(LayerDTO dto) {
         Layer newLayer = layerRepository.save(transformDTOToLayer(dto));
         return Optional.of(transformLayerToLayerDTO(newLayer));

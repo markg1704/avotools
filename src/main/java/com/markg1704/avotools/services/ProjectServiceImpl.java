@@ -37,17 +37,30 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Optional<Boolean> deleteProject(Long id) {
-        return Optional.empty();
+        Optional<Project> project = projectRepository.findById(id);
+
+        if (!project.isPresent())
+            return Optional.of(Boolean.FALSE);
+
+        projectRepository.deleteById(id);
+        Optional<Project> hasDeleted = projectRepository.findById(id);
+
+        return Optional.of(!hasDeleted.isPresent());
     }
 
     @Override
     public Optional<Project> updateProject(ProjectDTO projectDTO) {
-        return Optional.empty();
+        Project updateProject = transformProjectDTO(projectDTO);
+        return Optional.of(projectRepository.save(updateProject));
     }
 
     private Project transformProjectDTO(ProjectDTO projectDTO) {
 
         Project project = new Project();
+
+        if (projectDTO.getId() != null) {
+            project.setId(projectDTO.getId());
+        }
 
         project.setName(projectDTO.getName());
 
